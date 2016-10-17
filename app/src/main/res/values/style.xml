@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+   <style name="push_style">
+		<item name="android:hint">@string/style_hint</item>
+		<item name="android:inputType">number</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="push_alias">
+		<item name="android:hint">@string/alias_hint</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="push_tag">
+		<item name="android:hint">@string/tag_hint</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	<style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+		<item name="colorAccent">@color/white</item>
+		<!-- Used for the title and text -->
+		<item name="android:textColorPrimary">@color/black</item>
+		<!-- Used for the background -->
+		<item name="android:background">@color/white</item>em>
+	</style>
+</resources>
