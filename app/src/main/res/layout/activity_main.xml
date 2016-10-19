@@ -15,10 +15,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@id/tv_username"
+        android:text="登录"
+        android:textColor="@color/black"
+        android:textSize="28sp" />
+    <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="60sp"
+        android:layout_below="@id/btn_login"
         android:text="退出登录"
+        android:textColor="@color/black"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/btn_exit_app"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_below="@id/btn_exit"
+        android:text="退出App"
         android:textColor="@color/black"
         android:textSize="28sp" />
 </RelativeLayout>

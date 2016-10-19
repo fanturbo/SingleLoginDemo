@@ -4,21 +4,14 @@ package com.example.jpushdemo.bean;
  * Created by snail on 16/10/16.
  */
 public class JPushLoginEvent {
+
     /**
+     * msg : http://www.iqujing.com/
      * type : 1
-     * msg : 登录
      */
 
-    private int type;
     private String msg;
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
+    private String type;
 
     public String getMsg() {
         return msg;
@@ -26,5 +19,13 @@ public class JPushLoginEvent {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

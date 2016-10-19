@@ -16,8 +16,7 @@ import retrofit2.http.Query;
 import rx.Observable;
 
 public interface DemoApi {
-    @Headers("Content-Type: application/json")
     @FormUrlEncoded
-    @POST("turbo/some_good_examples/singlelogindemo/login.php")
-    Observable<User> login(@Field("useranme") String useranme, @Field("password") String password);
+    @POST("/turbo/some_good_examples/singlelogindemo/login.php")
+    Observable<User> login(@Field("username") String useranme, @Field("password") String password,@Field("auto") String auto);
 }

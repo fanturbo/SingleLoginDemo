@@ -14,7 +14,7 @@
 		<item name="android:textSize">14sp</item>
 	</style>
 	<style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
-		<item name="colorAccent">@color/white</item>
+		<item name="colorAccent">@color/black</item>
 		<!-- Used for the title and text -->
 		<item name="android:textColorPrimary">@color/black</item>
 		<!-- Used for the background -->

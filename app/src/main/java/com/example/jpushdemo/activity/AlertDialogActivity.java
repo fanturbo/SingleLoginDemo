@@ -8,9 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
+import com.example.jpushdemo.bean.Exit;
 import com.example.jpushdemo.utils.ExampleUtil;
 import com.example.jpushdemo.utils.SPUtils;
 import com.example.jpushdemo.utils.DialogHelp;
+import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Produce;
+import com.hwangjr.rxbus.annotation.Subscribe;
 
 import java.util.Set;
 
@@ -23,6 +27,8 @@ import cn.jpush.android.api.TagAliasCallback;
 public class AlertDialogActivity extends AppCompatActivity {
 
     private Context context;
+    private Exit  exit = new Exit();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +43,12 @@ public class AlertDialogActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //TODO 跳转到登录Activity
-                ExampleUtil.showToast("前往登录页面",context);
+                ExampleUtil.showToast("前往登录页面", context);
                 finish();
             }
         }, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 finish();
             }
         }).setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -56,6 +61,8 @@ public class AlertDialogActivity extends AppCompatActivity {
 
     private void logout() {
         //TODO 清除手机上保存的登录用户状态
+        Log.i("=====", "清除手机上保存的登录用户状态");
+        RxBus.get().post(exit);
         mJpushHandler.sendMessage(mJpushHandler.obtainMessage(MSG_SET_ALIAS, ""));
     }
 
@@ -64,7 +71,10 @@ public class AlertDialogActivity extends AppCompatActivity {
         this.finish();
         super.onBackPressed();
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
     //以下都是极光推送相关
     private static final String TAG = "JPush";
     private static final int MSG_SET_ALIAS = 1001;

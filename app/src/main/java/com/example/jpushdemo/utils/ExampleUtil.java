@@ -186,15 +186,15 @@ public class ExampleUtil {
     }
 
     public static boolean checkNetworkState(Context context) {
-        ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = mConnectivityManager.getActiveNetworkInfo();
-        // 1.判断是否有网络连接
-        if (networkInfo != null && networkInfo.isAvailable()
-                && networkInfo.isConnected()) {
-            return true;
+        if (context != null) {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = mConnectivityManager.getActiveNetworkInfo();
+            // 1.判断是否有网络连接
+            if (networkInfo != null && networkInfo.isAvailable()
+                    && networkInfo.isConnected()) {
+                return true;
+            }
         }
         return false;
     }
-
-
 }

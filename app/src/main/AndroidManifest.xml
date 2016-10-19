@@ -44,6 +44,9 @@
         <activity
             android:name="com.example.jpushdemo.activity.LoginActivity"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name="com.example.jpushdemo.activity.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,10 +54,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- For test only 测试高级功能 -->
-        <!-- For test only 测试设置 -->
-        <!-- For test only 测试状态通知栏，需要打开的Activity -->
-
+        <activity
+            android:name="com.example.jpushdemo.activity.AlertDialogActivity"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.example.jpushdemo.activity.WelcomeActivity"
+            android:theme="@style/AppTheme"></activity>
 
         <!-- Rich push 核心功能 since 2.0.6 -->
         <activity
@@ -167,9 +172,7 @@
             android:value="de10ed9b9c02cd15c17a9397" />
         <!-- </>值来自开发者平台取得的AppKey -->
 
-        <activity
-            android:name="com.example.jpushdemo.activity.MainActivity"
-            android:theme="@style/AppTheme"></activity>
+
     </application>
 
 </manifest>

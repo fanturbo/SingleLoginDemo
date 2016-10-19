@@ -103,13 +103,15 @@ public class MyReceiver extends BroadcastReceiver {
 	private void processCustomMessage(Context context, Bundle bundle) {
 		String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
 		String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+		Log.i("Jpush","extras = "+extras);
 		//接收到消息格式为type=1那么就代表账号在另一个地方登录了，强制当前用户退出
-		if (!ExampleUtil.isStringEmpty(message)) {
+		if (!ExampleUtil.isStringEmpty(extras)) {
 			Gson gson = new Gson();
-			JPushLoginEvent jPushLoginEvent = gson.fromJson(message, JPushLoginEvent.class);
-			if (1 == jPushLoginEvent.getType()) {
+			JPushLoginEvent jPushLoginEvent = gson.fromJson(extras, JPushLoginEvent.class);
+			if ("1".equals(jPushLoginEvent.getType())) {
 				List<String> nameList = new ArrayList<>();
-				nameList.add("com.yxjy.app.guoxue.ui.WelcomeActivity");
+				// TODO: 2016/10/19 针对第3,4种情况，重新进入app并不想在启动页（或者其他页面）展示退出登录提醒，那么将Activity的全限定类名加入list
+				nameList.add("com.example.jpushdemo.activity.WelcomeActivity");
 				if (ExampleUtil.isAppOnForeground(context, nameList)) {
 					Intent intent = new Intent(context, AlertDialogActivity.class);
 					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
